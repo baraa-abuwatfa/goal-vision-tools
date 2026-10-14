@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture rules
+- Data access goes through the browser Supabase client in `src/lib/plans.ts`; security is enforced by RLS on `plans`/`plan_tasks` (why: no server secrets needed, owner-only access at DB level).
+- Signed-in pages live under `src/routes/_authenticated/` (client-only gate, redirect to /auth).
+- Task progress is always computed from task statuses, never stored.
