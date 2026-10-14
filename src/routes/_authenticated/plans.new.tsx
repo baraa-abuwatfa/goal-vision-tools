@@ -34,9 +34,9 @@ function CreatePlan() {
     e.preventDefault();
     if (busy) return;
     const errs: Record<string, string> = {};
-    if (!f.title.trim()) errs.title = "Plan title is required.";
-    if (!f.description.trim()) errs.description = "Task description is required.";
-    if (!f.goal.trim()) errs.goal = "Desired outcome is required.";
+    if (!f.title.trim()) errs["title"] = "Plan title is required.";
+    if (!f.description.trim()) errs["description"] = "Task description is required.";
+    if (!f.goal.trim()) errs["goal"] = "Desired outcome is required.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
     setBusy(true);
