@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Wordmark } from "@/components/Wordmark";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>): { mode?: "signup" } => ({ mode: s["mode"] === "signup" ? ("signup" as const) : undefined }),
+  validateSearch: (s: Record<string, unknown>): { mode?: "signup" | undefined } => ({ mode: s["mode"] === "signup" ? ("signup" as const) : undefined }),
   head: () => ({
     meta: [
       { title: "Sign in — TaskBridge" },
